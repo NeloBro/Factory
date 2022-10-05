@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Factory</title>
+    </head>
+    <body>
+        <script>
+            class Dilivery {
+                constructor(clientName,type) {
+                    this.clientName = clientName;
+                    this.type = type;
+                    this.print = function() {
+                        document.write("Имя клиента: "+this.clientName+"; Тип перевозки: "+this.type+"<br>");
+                    }
+            } 
+        }
+        class diliveryFactory {
+            create(clientName,type) {
+                if(type === "Грузовик")
+                {
+                    return new Dilivery(clientName,type);
+                }
+                else if(type === "Самолёт") {
+                    return new Dilivery(clientName,type);
+                }
+                else if(type === "Судно") {
+                    return new Dilivery(clientName,type);
+                }
+                else {
+                    document.write("Такой доставки нет")
+                }
+            }
+        }
+        const factory = new diliveryFactory();
+
+        var name = prompt("Введите имя клиента");
+        var type = prompt("Введите тип доставки");
+
+        dilivery = factory.create(name,type);
+        dilivery.print();
+        </script>
+    </body>
+</html>
